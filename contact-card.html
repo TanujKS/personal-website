@@ -3,8 +3,19 @@
 <head>
     <title>Redirecting</title>
     <script>
+        const redirectMap = {
+            "1": '/?redirect=contact-card',
+            "2": "https://www.instagram.com/tanuj.k.s",
+            "3": "https://www.linkedin.com/in/tanuj-siripurapu-747b58217/",
+            "default": '/?redirect=contact-card'
+        };
+
         window.onload = function() {
-            window.location.href = '/?redirect=contact-card';
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id'); 
+
+            const redirectUrl = redirectMap[id] || redirectMap["default"];
+            window.location.href = redirectUrl;        
         };
     </script>
 </head>
