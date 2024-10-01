@@ -74,7 +74,7 @@
                                 <div class="typed-text">Student, Web Developer, App Developer, Hackathon Organizer, Drummer</div>
                             </div>
                             <div class="hero-btn">
-                                <a class="btn" href="#about">About Me</a>
+                                <a class="btn" id="dynamic-btn" href="#about">About Me</a>
                                 <a class="btn" href="#portfolio">Projects</a>
                             </div>
                         </div>
@@ -468,5 +468,24 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <script>
+            function isMobileDevice() {
+                return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
+        
+            function updateButtonText() {
+                const btn = document.getElementById('dynamic-btn');
+                if (isMobileDevice()) {
+                    btn.textContent = 'Contact';
+                    btn.href = '/Tanuj Siripurapu.vcf'; 
+                } else {
+                    btn.textContent = 'About Me';
+                    btn.href = '#about';
+                }
+            }
+        
+            window.addEventListener('load', updateButtonText);
+        </script>
     </body>
 </html>
