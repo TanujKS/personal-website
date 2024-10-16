@@ -8,6 +8,6 @@ function getUrlParameter(name) {
 window.onload = function() {
     var redirectParam = getUrlParameter('redirect');
     if (redirectParam === 'contact-card') {
-        window.location.href = '/Tanuj Siripurapu.vcf';
+        window.location.href = 'assets/Tanuj Siripurapu.vcf';
     }
 };
