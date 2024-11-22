@@ -7,7 +7,10 @@ function getUrlParameter(name) {
 
 window.onload = function() {
     var redirectParam = getUrlParameter('redirect');
-    if (redirectParam === 'contact-card') {
+    var isCardOpened = localStorage.getItem('contactCardOpened');
+
+    if (redirectParam === 'contact-card' && !isCardOpened) {
+        localStorage.setItem('contactCardOpened', 'true');
         window.location.href = 'assets/Tanuj Siripurapu.vcf';
     }
 };
