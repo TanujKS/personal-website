@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tanuj Siripurapu</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Student, Developer" name="keywords">
+    <meta content="About Me, Projects, & Experience" name="description">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <script>
+        async function logUserInfo() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const { ip } = await response.json();
+
+                const now = new Date();
+                const formattedTimestamp = new Intl.DateTimeFormat('en-US', {
+                    dateStyle: 'full',
+                    timeStyle: 'long',
+                }).format(now);
+                
+                const data = {
+                    content: `${"```"}New User Visited: \nIP Address: ${ip} \nTime: ${formattedTimestamp}${"```"}`
+                };
+
+                await fetch('https://discord.com/api/webhooks/1322404880769351741/p8kC3X1gdDOzSMFGbfTDHhIJXfrFL0N0Tm60B6jvGU5RyGNDjsuzQiiyTGnLcRnJ1Hq1', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+            } catch (error) {
+                console.error('Error logging user information:', error);
+            }
+        }
+
+        window.onload = async function() {
+            await logUserInfo() 
+            window.location.href = "/"
+            
+        };
+
+    </script>
+</head>
+</html>
