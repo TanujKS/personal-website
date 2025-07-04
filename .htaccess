@@ -1,5 +1,14 @@
 RewriteEngine On
 RewriteBase /
+
+# Redirects
+RewriteRule ^writeright/?$ https://devpost.com/software/writeright-pq8ihr [R=301,L]
+RewriteRule ^protected/?$ https://devpost.com/software/protected/ [R=301,L]
+RewriteRule ^zeroresponders/?$ https://devpost.com/software/zeroresponders [R=301,L]
+RewriteRule ^facade/?$ https://www.youtube.com/watch?v=YABhQ6WrWmk [R=301,L]
+RewriteRule ^droplet/?$ https://youtu.be/bDuVqdedkZA [R=301,L]
+
+# Handle .html extensions
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^.]+)$ $1.html [L]

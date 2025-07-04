@@ -13,7 +13,20 @@
     
     
     // Initiate the wowjs
-    new WOW().init();
+    if (typeof WOW !== 'undefined') {
+        new WOW().init();
+    } else {
+        // Fallback if WOW.js fails to load
+        console.warn('WOW.js not loaded, trying alternative CDN');
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/wowjs@1.3.0/dist/wow.min.js';
+        script.onload = function() {
+            if (typeof WOW !== 'undefined') {
+                new WOW().init();
+            }
+        };
+        document.head.appendChild(script);
+    }
     
     
     // Back to top button
@@ -25,7 +38,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         return false;
     });
     
@@ -45,9 +58,13 @@
         if (this.hash !== "") {
             event.preventDefault();
             
-            $('html, body').animate({
-                scrollTop: $(this.hash).offset().top - 45
-            }, 1500, 'easeInOutExpo');
+            const targetElement = document.querySelector(this.hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
             
             if ($(this).parents('.navbar-nav').length) {
                 $('.navbar-nav .active').removeClass('active');
@@ -58,15 +75,37 @@
     
     
     // Typed Initiate
-    if ($('.hero .hero-text h2').length == 1) {
-        var typed_strings = $('.hero .hero-text .typed-text').text();
-        var typed = new Typed('.hero .hero-text h2', {
-            strings: typed_strings.split(', '),
-            typeSpeed: 100,
-            backSpeed: 20,
-            smartBackspace: false,
-            loop: true
-        });
+    function initTyped() {
+        if ($('.hero .hero-text h2').length == 1 && typeof Typed !== 'undefined') {
+            var typed_strings = $('.hero .hero-text .typed-text').text();
+            var typed = new Typed('.hero .hero-text h2', {
+                strings: typed_strings.split(', '),
+                typeSpeed: 100,
+                backSpeed: 20,
+                smartBackspace: false,
+                loop: true
+            });
+        } else if ($('.hero .hero-text h2').length == 1) {
+            // Fallback if Typed.js fails to load
+            console.warn('Typed.js not loaded, using fallback text');
+            var fallbackText = $('.hero .hero-text .typed-text').text().split(', ')[0];
+            $('.hero .hero-text h2').text(fallbackText);
+        }
+    }
+    
+    // Try to initialize Typed immediately, or wait for it to load
+    if (typeof Typed !== 'undefined') {
+        initTyped();
+    } else {
+        // Wait a bit for the script to load
+        setTimeout(function() {
+            if (typeof Typed !== 'undefined') {
+                initTyped();
+            } else {
+                console.warn('Typed.js still not available after timeout');
+                initTyped(); // This will trigger the fallback
+            }
+        }, 1000);
     }
     
     
@@ -77,22 +116,6 @@
         });
     }, {offset: '80%'});
 
-
-    // Testimonials carousel
-    $(".testimonials-carousel").owlCarousel({
-        center: true,
-        autoplay: true,
-        dots: true,
-        loop: true,
-        responsive: {
-            0:{
-                items:1
-            }
-        }
-    });
-    
-    
-    
     // Portfolio filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
