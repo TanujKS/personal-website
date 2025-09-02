@@ -13,32 +13,35 @@ const routes = [
   },
   {
     path: '/droplet',
-    beforeEnter: () => {
-      window.location.href = 'https://youtu.be/bDuVqdedkZA'
-    },
+    redirect: '/external-redirect?url=https://youtu.be/bDuVqdedkZA',
   },
   {
     path: '/facade',
-    beforeEnter: () => {
-      window.location.href = 'https://youtu.be/YABhQ6WrWmk?si=5u-BQxc_OwY4VEdi'
-    },
+    redirect: '/external-redirect?url=https://youtu.be/YABhQ6WrWmk?si=5u-BQxc_OwY4VEdi',
   },
   {
     path: '/protected',
-    beforeEnter: () => {
-      window.location.href = 'https://devpost.com/software/protected/'
-    },
+    redirect: '/external-redirect?url=https://devpost.com/software/protected/',
   },
   {
     path: '/writeright',
-    beforeEnter: () => {
-      window.location.href = 'https://devpost.com/software/writeright-pq8ihr'
-    },
+    redirect: '/external-redirect?url=https://devpost.com/software/writeright-pq8ihr',
   },
   {
     path: '/zeroresponders',
-    beforeEnter: () => {
-      window.location.href = 'https://devpost.com/software/zeroresponders'
+    redirect: '/external-redirect?url=https://devpost.com/software/zeroresponders',
+  },
+  {
+    path: '/external-redirect',
+    name: 'ExternalRedirect',
+    component: {
+      template: '<div>Redirecting...</div>',
+      mounted() {
+        const url = this.$route.query.url
+        if (url) {
+          window.location.href = url
+        }
+      },
     },
   },
 ]
