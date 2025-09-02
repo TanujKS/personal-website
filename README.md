@@ -43,6 +43,47 @@ src/
    npm run build
    ```
 
+## Deployment
+
+### Cloudflare Pages (Recommended)
+
+This project is configured for automatic deployment on Cloudflare Pages via Git integration.
+
+1. **Go to Cloudflare Dashboard**:
+   - Visit [dash.cloudflare.com](https://dash.cloudflare.com)
+   - Navigate to Pages → Create a project
+
+2. **Connect your Git repository**:
+   - Choose "Connect to Git"
+   - Select your repository and branch
+
+3. **Configure build settings**:
+   - **Framework preset**: None
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+
+4. **Deploy**: Click "Save and Deploy"
+
+5. **Automatic deployments**: Every push to your main branch will trigger a new deployment!
+
+### Configuration
+
+The `wrangler.toml` file handles:
+- Build settings and Node.js version
+- **SPA routing**: `not_found_handling = "single-page-application"` automatically serves `index.html` for all routes
+
+### GitHub Pages (Legacy)
+
+This project was previously deployed on GitHub Pages. The configuration has been updated for Cloudflare Pages, but if you need to deploy back to GitHub Pages:
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Copy the `dist/` contents to your GitHub Pages branch
+3. Ensure `404.html` and `.nojekyll` files are present
+
 ## Components
 
 ### Hero.vue

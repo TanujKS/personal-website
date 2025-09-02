@@ -39,7 +39,7 @@ const dynamicButtonText = computed(() => {
 })
 
 const dynamicButtonHref = computed(() => {
-  return isMobile.value ? '/contact-card' : '#about'
+  return isMobile.value ? '/contact' : '#about'
 })
 
 onMounted(() => {
