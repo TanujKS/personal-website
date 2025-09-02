@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tanuj Siripurapu</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      
+      // For custom domains, we don't need to keep any path segments
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?/' +
+        l.pathname.slice(1).split('/').join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash;
+      
+      // Redirect to the root with the path as a query parameter
+      l.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+    <!-- This page will redirect to the root with the path as a query parameter -->
+    <!-- Vue Router will then handle the routing on the client side -->
+  </body>
+</html>
