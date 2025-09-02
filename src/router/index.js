@@ -13,23 +13,33 @@ const routes = [
   },
   {
     path: '/droplet',
-    redirect: 'https://youtu.be/bDuVqdedkZA',
+    beforeEnter: () => {
+      window.location.href = 'https://youtu.be/bDuVqdedkZA'
+    },
   },
   {
     path: '/facade',
-    redirect: 'https://youtu.be/YABhQ6WrWmk?si=5u-BQxc_OwY4VEdi',
+    beforeEnter: () => {
+      window.location.href = 'https://youtu.be/YABhQ6WrWmk?si=5u-BQxc_OwY4VEdi'
+    },
   },
   {
     path: '/protected',
-    redirect: 'https://devpost.com/software/protected/',
+    beforeEnter: () => {
+      window.location.href = 'https://devpost.com/software/protected/'
+    },
   },
   {
     path: '/writeright',
-    redirect: 'https://devpost.com/software/writeright-pq8ihr',
+    beforeEnter: () => {
+      window.location.href = 'https://devpost.com/software/writeright-pq8ihr'
+    },
   },
   {
     path: '/zeroresponders',
-    redirect: 'https://devpost.com/software/zeroresponders',
+    beforeEnter: () => {
+      window.location.href = 'https://devpost.com/software/zeroresponders'
+    },
   },
 ]
 
