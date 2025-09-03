@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 slide-in-left p-0">
           <div class="about-img">
-            <img src="/img/about.jpg" alt="Tanuj Siripurapu">
+            <img src="/img/about.jpg" alt="Tanuj Siripurapu" />
           </div>
         </div>
         <div class="col-lg-6 slide-in-right p-4">
@@ -15,32 +15,57 @@
             </div>
             <div class="about-text">
               <p>
-                I have been programming since I was 9 years old, tinkering with Python scripts like account managers and voice assistants. Since I first fell in love with programming, I have developed software solutions from Discord bots to machine learning models, mobile apps to websites, and smart water meters to social media platforms. I am currently purusing a BS in Computer Science at University of California, Santa Barbara.
+                I have been programming since I was 9 years old, tinkering with Python scripts like
+                account managers and voice assistants. Since I first fell in love with programming,
+                I have developed software from Discord bots to machine learning models, mobile apps
+                to websites, and smart water meters to social media platforms. I am currently
+                pursuing a BS in Computer Science at University of California, Santa Barbara.
               </p>
             </div>
             <div class="skills">
               <div class="skill-item">
                 <div class="skill-name">
-                  <p>Python (ML, Flask, Tensorflow, PyTorch, Discord.py)</p><p>9 Years</p>
+                  <p>Python (ML, Flask, Tensorflow, PyTorch, Discord.py)</p>
+                  <p>9 Years</p>
                 </div>
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="95"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-name">
-                  <p>Web Development (Vue.js, React.js, Astro, Svelte)</p><p>4 years</p>
+                  <p>Web Development (Vue.js, React.js, Astro, Svelte)</p>
+                  <p>4 years</p>
                 </div>
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-name">
-                  <p>Full-Stack App Development (React Native, Firebase, PostgreSQL, Twilio)</p><p>4 years</p>
+                  <p>Full-Stack App Development (React Native, Firebase, PostgreSQL, Twilio)</p>
+                  <p>4 years</p>
                 </div>
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -137,7 +162,7 @@ onMounted(() => {
 
 .about .progress .progress-bar {
   width: 0px;
-  background: #EF233C;
+  background: #ef233c;
   border-radius: 10px;
   transition: 2s ease-out;
   height: 100%;
@@ -146,8 +171,8 @@ onMounted(() => {
 .about a.btn {
   margin-top: 15px;
   color: #ffffff;
-  background: #EF233C;
-  box-shadow: inset 0 0 0 50px #EF233C;
+  background: #ef233c;
+  box-shadow: inset 0 0 0 50px #ef233c;
   padding: 12px 25px;
   font-size: 14px;
   font-weight: 600;
@@ -159,10 +184,10 @@ onMounted(() => {
 }
 
 .about .about-text a.btn:hover {
-  color: #EF233C;
+  color: #ef233c;
   background: transparent;
-  box-shadow: inset 0 0 0 0 #EF233C;
-  border-color: #EF233C;
+  box-shadow: inset 0 0 0 0 #ef233c;
+  border-color: #ef233c;
 }
 
 /* Responsive styles */
@@ -171,7 +196,7 @@ onMounted(() => {
     min-height: 400px;
     margin-bottom: 30px;
   }
-  
+
   .about .about-content {
     padding: 0 30px 0 0;
   }
@@ -181,30 +206,30 @@ onMounted(() => {
   .about {
     margin: 0 0 45px 0;
   }
-  
+
   .about .about-img {
     min-height: 300px;
   }
-  
+
   .about .about-content {
     text-align: center;
     padding: 0;
   }
-  
+
   .about .section-header {
     text-align: center;
   }
-  
+
   .about .section-header p {
     margin: 0 auto 10px auto;
   }
-  
+
   .about .skill-name {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
-  
+
   .about .skill-name p:last-child {
     align-self: flex-end;
   }
