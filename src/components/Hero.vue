@@ -8,11 +8,20 @@
               <p>I'm</p>
               <h1>Tanuj Siripurapu</h1>
               <h2 ref="typedElement"></h2>
-              <div class="typed-text">Student, Web Developer, App Developer, Hackathon Organizer, Climber</div>
+              <div class="typed-text">
+                Student, Web Developer, App Developer, Hackathon Organizer, Climber
+              </div>
             </div>
             <div class="hero-btn">
               <a class="btn" id="dynamic-btn" :href="dynamicButtonHref">{{ dynamicButtonText }}</a>
               <a class="btn" href="#portfolio">Projects</a>
+              <a
+                class="btn"
+                href="https://cdn.tanuj.xyz/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Resume</a
+              >
             </div>
           </div>
         </div>
@@ -30,7 +39,9 @@ const isMobile = ref(false)
 
 // Mobile detection function
 const detectMobile = () => {
-  isMobile.value = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  isMobile.value = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  )
 }
 
 // Computed properties for dynamic button
@@ -45,7 +56,7 @@ const dynamicButtonHref = computed(() => {
 onMounted(() => {
   // Detect mobile on mount
   detectMobile()
-  
+
   // Set up typed.js
   if (typedElement.value) {
     const typed = new Typed(typedElement.value, {
@@ -55,10 +66,10 @@ onMounted(() => {
       backDelay: 2000,
       loop: true,
       showCursor: true,
-      cursorChar: '|'
+      cursorChar: '|',
     })
   }
-  
+
   // Listen for window resize to handle orientation changes
   window.addEventListener('resize', detectMobile)
 })
@@ -70,7 +81,7 @@ onMounted(() => {
   width: 100%;
   padding: 120px 0 0 0;
   overflow: hidden;
-  background: linear-gradient(rgba(239, 35, 60, .95), rgba(239, 35, 60, .95));
+  background: linear-gradient(rgba(239, 35, 60, 0.95), rgba(239, 35, 60, 0.95));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -115,7 +126,7 @@ onMounted(() => {
 
 .hero .hero-btn .btn {
   margin-top: 35px;
-  color: #EF233C;
+  color: #ef233c;
   background: #ffffff;
   box-shadow: inset 0 0 0 50px #ffffff;
 }
@@ -127,8 +138,12 @@ onMounted(() => {
   border-color: #ffffff;
 }
 
-.hero .hero-btn .btn:first-child {
+.hero .hero-btn .btn {
   margin-right: 10px;
+}
+
+.hero .hero-btn .btn:last-child {
+  margin-right: 0;
 }
 
 /* Responsive styles */
@@ -136,24 +151,24 @@ onMounted(() => {
   .hero {
     padding-top: 60px;
   }
-  
+
   .hero .hero-content {
     padding: 0 15px;
   }
-  
+
   .hero .hero-text p {
     font-size: 20px;
   }
-  
+
   .hero .hero-text h1 {
     font-size: 45px;
   }
-  
+
   .hero .hero-text h2 {
     font-size: 25px;
     height: 25px;
   }
-  
+
   .hero .hero-btn .btn {
     padding: 12px 30px;
     letter-spacing: 1px;
@@ -165,27 +180,27 @@ onMounted(() => {
     padding-top: 60px;
     padding-bottom: 60px;
   }
-  
+
   .hero,
   .hero .hero-text,
   .hero .hero-btn {
     width: 100%;
     text-align: center;
   }
-  
+
   .hero .hero-text p {
     font-size: 18px;
   }
-  
+
   .hero .hero-text h1 {
     font-size: 35px;
   }
-  
+
   .hero .hero-text h2 {
     font-size: 22px;
     height: 22px;
   }
-  
+
   .hero .hero-btn .btn {
     padding: 10px 15px;
     letter-spacing: 1px;
@@ -196,16 +211,16 @@ onMounted(() => {
   .hero .hero-text p {
     font-size: 16px;
   }
-  
+
   .hero .hero-text h1 {
     font-size: 30px;
   }
-  
+
   .hero .hero-text h2 {
     font-size: 18px;
     height: 18px;
   }
-  
+
   .hero .hero-btn .btn {
     padding: 8px 10px;
     letter-spacing: 0;
