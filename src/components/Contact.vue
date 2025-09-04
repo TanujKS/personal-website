@@ -5,10 +5,17 @@
         <p>Get In Touch</p>
         <h2>Contact Me</h2>
       </div>
-      
+
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
           <div class="contact-card">
+            <div class="back-button-container">
+              <button @click="goBack" class="btn btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Back
+              </button>
+            </div>
+
             <div class="contact-info">
               <div class="contact-item">
                 <i class="fas fa-user"></i>
@@ -17,7 +24,7 @@
                   <p>Tanuj Siripurapu</p>
                 </div>
               </div>
-              
+
               <div class="contact-item">
                 <i class="fas fa-envelope"></i>
                 <div>
@@ -25,41 +32,37 @@
                   <p>contact@tanuj.xyz</p>
                 </div>
               </div>
-              
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                  <h4>Location</h4>
-                  <p>Santa Barbara, CA</p>
-                </div>
-              </div>
-              
+
               <div class="contact-item">
                 <i class="fas fa-graduation-cap"></i>
                 <div>
                   <h4>Education</h4>
-                  <p> University of California, Santa Barbara</p>
+                  <p>University of California, Santa Barbara</p>
                 </div>
               </div>
             </div>
-            
+
             <div class="contact-actions">
               <button @click="downloadContactCard" class="btn btn-primary">
                 <i class="fas fa-download"></i>
                 Download Contact Card
               </button>
-              
+
               <button @click="copyEmail" class="btn btn-outline-primary">
                 <i class="fas fa-copy"></i>
                 Copy Email
               </button>
             </div>
-            
+
             <div class="social-links">
               <a href="https://github.com/TanujKS" target="_blank" class="social-link">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="https://linkedin.com/in/tanuj-siripurapu-747b58217" target="_blank" class="social-link">
+              <a
+                href="https://linkedin.com/in/tanuj-siripurapu-747b58217"
+                target="_blank"
+                class="social-link"
+              >
                 <i class="fab fa-linkedin"></i>
               </a>
               <a href="mailto:contact@tanuj.xyz" class="social-link">
@@ -75,6 +78,13 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goBack = () => {
+  router.go(-1)
+}
 
 const downloadContactCard = () => {
   // Create a temporary link element with download attribute
@@ -82,7 +92,7 @@ const downloadContactCard = () => {
   link.href = '/Tanuj Siripurapu.vcf'
   link.download = 'Tanuj Siripurapu.vcf'
   link.style.display = 'none'
-  
+
   // Append to body, click, and remove
   document.body.appendChild(link)
   link.click()
@@ -119,9 +129,35 @@ const copyEmail = async () => {
   background: #ffffff;
   border-radius: 0;
   padding: 40px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
   text-align: center;
-  border: 2px solid #EF233C;
+  border: 2px solid #ef233c;
+}
+
+.back-button-container {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  background: transparent;
+  color: #ef233c;
+  border: 2px solid #ef233c;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-back:hover {
+  background: #ef233c;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 35, 60, 0.3);
 }
 
 .contact-info {
@@ -140,7 +176,7 @@ const copyEmail = async () => {
 
 .contact-item i {
   font-size: 24px;
-  color: #EF233C;
+  color: #ef233c;
   margin-right: 20px;
   width: 30px;
   text-align: center;
@@ -179,30 +215,30 @@ const copyEmail = async () => {
 
 .contact-actions .btn-primary {
   color: #ffffff;
-  background: #EF233C;
-  box-shadow: inset 0 0 0 50px #EF233C;
+  background: #ef233c;
+  box-shadow: inset 0 0 0 50px #ef233c;
   border: 2px solid transparent;
 }
 
 .contact-actions .btn-primary:hover {
-  color: #EF233C;
+  color: #ef233c;
   background: transparent;
-  box-shadow: inset 0 0 0 0 #EF233C;
-  border-color: #EF233C;
+  box-shadow: inset 0 0 0 0 #ef233c;
+  border-color: #ef233c;
 }
 
 .contact-actions .btn-outline-primary {
-  color: #EF233C;
+  color: #ef233c;
   background: transparent;
-  box-shadow: inset 0 0 0 0 #EF233C;
-  border-color: #EF233C;
+  box-shadow: inset 0 0 0 0 #ef233c;
+  border-color: #ef233c;
 }
 
 .contact-actions .btn-outline-primary:hover {
   color: #ffffff;
-  background: #EF233C;
-  box-shadow: inset 0 0 0 50px #EF233C;
-  border-color: #EF233C;
+  background: #ef233c;
+  box-shadow: inset 0 0 0 50px #ef233c;
+  border-color: #ef233c;
 }
 
 .social-links {
@@ -217,7 +253,7 @@ const copyEmail = async () => {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: #EF233C;
+  background: #ef233c;
   color: white;
   border-radius: 50%;
   font-size: 20px;
@@ -229,18 +265,18 @@ const copyEmail = async () => {
   background: #d32f2f;
   color: white;
   transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 768px) {
   .contact-card {
     padding: 30px 20px;
   }
-  
+
   .contact-item {
     padding: 15px;
   }
-  
+
   .contact-actions .btn {
     display: block;
     width: 100%;
