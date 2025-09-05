@@ -1,35 +1,57 @@
 <template>
-  <div class="portfolio" id="portfolio" ref="portfolioRef">
+  <section
+    class="portfolio"
+    id="portfolio"
+    ref="portfolioRef"
+    role="main"
+    aria-labelledby="portfolio-heading"
+  >
     <div class="container">
-      <div class="section-header text-center">
+      <header class="section-header text-center">
         <p>My Portfolio</p>
-        <h2>Projects</h2>
-      </div>
+        <h2 id="portfolio-heading">Projects & Experience</h2>
+        <p class="portfolio-description">
+          A showcase of my work in web development, mobile apps, machine learning, and hackathon
+          organization
+        </p>
+      </header>
       <div class="row">
         <div class="col-12">
-          <ul id="portfolio-filter">
-            <li 
-              v-for="filter in filters" 
-              :key="filter.id"
-              :class="{ 'filter-active': activeFilter === filter.id }"
-              @click="setActiveFilter(filter.id)"
-            >
-              {{ filter.name }}
-            </li>
-          </ul>
+          <nav role="navigation" aria-label="Portfolio filter">
+            <ul id="portfolio-filter" role="tablist">
+              <li
+                v-for="filter in filters"
+                :key="filter.id"
+                :class="{ 'filter-active': activeFilter === filter.id }"
+                @click="setActiveFilter(filter.id)"
+                role="tab"
+                :aria-selected="activeFilter === filter.id"
+                :aria-controls="`portfolio-${filter.id}`"
+                tabindex="0"
+                @keydown.enter="setActiveFilter(filter.id)"
+                @keydown.space.prevent="setActiveFilter(filter.id)"
+              >
+                {{ filter.name }}
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
-      <div class="row portfolio-container pt-5">
-        <div 
-          v-for="(project, index) in filteredProjects" 
+      <div
+        class="row portfolio-container pt-5"
+        role="tabpanel"
+        :aria-labelledby="`portfolio-${activeFilter}`"
+      >
+        <article
+          v-for="(project, index) in filteredProjects"
           :key="project.id"
           :class="[
-            'col-lg-4', 
-            'col-md-6', 
-            'col-sm-12', 
-            'portfolio-item', 
+            'col-lg-4',
+            'col-md-6',
+            'col-sm-12',
+            'portfolio-item',
             'animate__animated',
-            { 'animate__fadeInUp': isVisible }
+            { animate__fadeInUp: isVisible },
           ]"
           :style="{ animationDelay: isVisible ? `${index * 0.1}s` : '0s' }"
         >
@@ -38,30 +60,45 @@
               <div class="portfolio-description">
                 <h3>{{ project.title }}</h3>
                 <h4>{{ project.role }}</h4>
-                <div class="portfolio-date">{{ project.date }}</div>
+                <time class="portfolio-date" :datetime="project.date">{{ project.date }}</time>
                 <p>{{ project.description }}</p>
-                <div class="portfolio-tags">
-                  <span 
-                    v-for="tag in project.tags" 
+                <div
+                  class="portfolio-tags"
+                  role="list"
+                  aria-label="Project technologies and categories"
+                >
+                  <span
+                    v-for="tag in project.tags"
                     :key="tag"
                     class="portfolio-tag"
+                    role="listitem"
                   >
                     {{ tag }}
                   </span>
                 </div>
               </div>
               <div class="portfolio-icons ml-2">
-                <img :src="project.image" :alt="project.title">
-                <a class="btn ml-auto" :href="project.link" target="_blank">
-                  <i class="fa fa-arrow-up-right-from-square"></i>
+                <img
+                  :src="project.image"
+                  :alt="`${project.title} project screenshot`"
+                  loading="lazy"
+                />
+                <a
+                  class="btn ml-auto"
+                  :href="project.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :aria-label="`View ${project.title} project`"
+                >
+                  <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -76,7 +113,7 @@ const filters = [
   { id: '*', name: 'All' },
   { id: 'organizations', name: 'Organizations' },
   { id: 'projects', name: 'Projects' },
-  { id: 'web-development', name: 'Web Development' }
+  { id: 'web-development', name: 'Web Development' },
 ]
 
 const projects = [
@@ -85,90 +122,99 @@ const projects = [
     title: 'MediHacks',
     role: 'Co-Founder',
     date: 'Aug 2023 - Present',
-    description: 'The MediHacks organization has hosted some of the largest global health hackathon with 1,200+ hackers and over $10,000 in cash prizes',
+    description:
+      'The MediHacks organization has hosted some of the largest global health hackathon with 1,200+ hackers and over $10,000 in cash prizes',
     image: '/img/portfolio-1.png',
     link: 'https://www.medihacks.org',
-    tags: ['Organizations']
+    tags: ['Organizations'],
   },
   {
     id: 2,
     title: 'Torus Platforms',
     role: 'Fullstack Developer',
     date: 'Dec 2023 - Sept 2024',
-    description: 'Torus Platforms brings college students, clubs, and organizations closer together with event planning, group management, and student verification',
+    description:
+      'Torus Platforms brings college students, clubs, and organizations closer together with event planning, group management, and student verification',
     image: '/img/portfolio-2.jpg',
     link: 'https://www.torusplatforms.com',
-    tags: ['Projects']
+    tags: ['Projects'],
   },
   {
     id: 3,
     title: 'NIJE',
     role: 'Web Developer',
     date: 'Apr 2024 - Dec 2024',
-    description: 'Developing technologies to preserve Indigenous languages & mentoring Indigenous students through college admissions',
+    description:
+      'Developing technologies to preserve Indigenous languages & mentoring Indigenous students through college admissions',
     image: '/img/portfolio-3.png',
     link: 'https://www.nijelearning.org',
-    tags: ['Organizations']
+    tags: ['Organizations'],
   },
   {
     id: 4,
     title: 'KSAR15',
     role: 'Board Member',
     date: 'Oct 2024 - Jul 2025',
-    description: 'Revitalized Saratoga\'s public radio station, KSAR15, by connecting student volunteers to create professional content on high school sports, local business, and more',
+    description:
+      "Revitalized Saratoga's public radio station, KSAR15, by connecting student volunteers to create professional content on high school sports, local business, and more",
     image: '/img/portfolio-4.jpg',
     link: 'https://www.ksar15.org',
-    tags: ['Organizations']
+    tags: ['Organizations'],
   },
   {
     id: 5,
     title: 'Droplet',
     role: '2nd Place - CAC',
     date: 'Dec 2023',
-    description: 'A mobile app to save water by providing real-time water usage/cost estimates; detecting leaks using machine learning; generating personalized tips on how to save water; & more',
+    description:
+      'A mobile app to save water by providing real-time water usage/cost estimates; detecting leaks using machine learning; generating personalized tips on how to save water; & more',
     image: '/img/portfolio-5.PNG',
     link: 'https://www.youtube.com/watch?v=bDuVqdedkZA',
-    tags: ['Projects']
+    tags: ['Projects'],
   },
   {
     id: 6,
     title: 'National History Day',
     role: 'CA State Finalist',
     date: 'Apr 2024',
-    description: 'Created a website analyzing the 1965 Immigration Act & was recognized as a National History Day California State Finalist out of ~1600 participants',
+    description:
+      'Created a website analyzing the 1965 Immigration Act & was recognized as a National History Day California State Finalist out of ~1600 participants',
     image: '/img/portfolio-6.png',
     link: 'https://24-02216363.nhdwebcentral.org/',
-    tags: ['Projects']
+    tags: ['Projects'],
   },
   {
     id: 7,
     title: 'ZeroToAI',
     role: 'Mentor',
     date: 'May 2023 - June 2023',
-    description: 'Taught webdev and basic AI skills to local high schoolers with no coding experience through a 6-week summer program',
+    description:
+      'Taught webdev and basic AI skills to local high schoolers with no coding experience through a 6-week summer program',
     image: '/img/portfolio-7.png',
     link: 'https://granthough.github.io/Zero-To-AI-Web-Apps-Website/',
-    tags: ['Organizations']
+    tags: ['Organizations'],
   },
   {
     id: 8,
     title: 'Lossless Group',
     role: 'Web Developer',
     date: 'Apr 2025 - Present',
-    description: 'Working under VC / consultant Michael Staton to develop a website for efficiently sharing thousands of Markdown files with clients',
+    description:
+      'Working under VC / consultant Michael Staton to develop a website for efficiently sharing thousands of Markdown files with clients',
     image: '/img/portfolio-8.png',
     link: 'https://lossless.group',
-    tags: ['Projects', 'Web Development']
+    tags: ['Projects', 'Web Development'],
   },
   {
     id: 9,
     title: 'Association of Family Psychiatrists',
     role: 'Web Developer',
     date: 'June 2025 - Present',
-    description: 'Rebuilding their website to handle secure membership directory, membership dues, and more',
+    description:
+      'Rebuilding their website to handle secure membership directory, membership dues, and more',
     image: '/img/portfolio-9.png',
     link: 'https://association-of-family-psychiatrists.github.io/site/#/',
-    tags: ['Projects', 'Web Development']
+    tags: ['Projects', 'Web Development'],
   },
   {
     id: 10,
@@ -178,7 +224,7 @@ const projects = [
     description: 'Rebuilding her website to handle product listings, portfolio, and more',
     image: '/img/portfolio-10.png',
     link: 'https://thedraperylady.pages.dev/',
-    tags: ['Projects', 'Web Development']
+    tags: ['Projects', 'Web Development'],
   },
 ]
 
@@ -186,10 +232,8 @@ const filteredProjects = computed(() => {
   if (activeFilter.value === '*') {
     return projects
   }
-  return projects.filter(project => {
-    return project.tags.some(tag => 
-      tag.toLowerCase().replace(/\s+/g, '-') === activeFilter.value
-    )
+  return projects.filter((project) => {
+    return project.tags.some((tag) => tag.toLowerCase().replace(/\s+/g, '-') === activeFilter.value)
   })
 })
 
@@ -203,7 +247,7 @@ const setActiveFilter = async (filterId) => {
   })
 
   // Wait for fade out animation to complete
-  await new Promise(resolve => setTimeout(resolve, 300))
+  await new Promise((resolve) => setTimeout(resolve, 300))
 
   // Update filter
   activeFilter.value = filterId
@@ -225,7 +269,7 @@ let observer = null
 onMounted(() => {
   // Check if device supports touch (mobile device)
   const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-  
+
   // Check if Intersection Observer is supported
   if ('IntersectionObserver' in window) {
     // Create Intersection Observer to detect when portfolio is in view
@@ -241,8 +285,8 @@ onMounted(() => {
       },
       {
         threshold: isMobile ? 0.1 : 0.3, // Lower threshold for mobile
-        rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px' // Smaller margin for mobile
-      }
+        rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px', // Smaller margin for mobile
+      },
     )
 
     // Start observing the portfolio
@@ -272,6 +316,15 @@ onUnmounted(() => {
   padding: 45px 0 15px 0;
 }
 
+.portfolio .portfolio-description {
+  font-size: 16px;
+  color: #797979;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .portfolio #portfolio-filter {
   padding: 0;
   margin: -15px 0 25px 0;
@@ -288,10 +341,10 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  background: #EF233C;
+  background: #ef233c;
   border: 2px solid transparent;
   border-radius: 0;
-  box-shadow: inset 0 0 0 50px #EF233C;
+  box-shadow: inset 0 0 0 50px #ef233c;
   transition: ease-out 0.3s;
   -webkit-transition: ease-out 0.3s;
   -moz-transition: ease-out 0.3s;
@@ -299,10 +352,10 @@ onUnmounted(() => {
 
 .portfolio #portfolio-filter li:hover,
 .portfolio #portfolio-filter li.filter-active {
-  color: #EF233C;
+  color: #ef233c;
   background: transparent;
-  box-shadow: inset 0 0 0 0 #EF233C;
-  border-color: #EF233C;
+  box-shadow: inset 0 0 0 0 #ef233c;
+  border-color: #ef233c;
 }
 
 .portfolio .portfolio-item {
@@ -350,7 +403,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   background: #ffffff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
 }
 
 .portfolio .portfolio-text h3 {
@@ -378,7 +431,7 @@ onUnmounted(() => {
   width: calc(100% - 70px);
   font-size: 12px;
   font-weight: 400;
-  color: #EF233C;
+  color: #ef233c;
   margin-bottom: 8px;
   font-style: italic;
 }
@@ -402,7 +455,7 @@ onUnmounted(() => {
 }
 
 .portfolio .portfolio-tag {
-  background: #EF233C;
+  background: #ef233c;
   color: #ffffff;
   font-size: 10px;
   font-weight: 600;
@@ -438,10 +491,10 @@ onUnmounted(() => {
   font-size: 45px;
   font-weight: 100;
   color: #ffffff;
-  background: #EF233C;
+  background: #ef233c;
   border: 2px solid transparent;
   border-radius: 0;
-  box-shadow: inset 0 0 0 50px #EF233C;
+  box-shadow: inset 0 0 0 50px #ef233c;
   transition: ease-out 0.3s;
   -webkit-transition: ease-out 0.3s;
   -moz-transition: ease-out 0.3s;
@@ -453,10 +506,10 @@ onUnmounted(() => {
 }
 
 .portfolio .portfolio-item:hover a.btn {
-  color: #EF233C;
+  color: #ef233c;
   background: transparent;
-  box-shadow: inset 0 0 0 0 #EF233C;
-  border-color: #EF233C;
+  box-shadow: inset 0 0 0 0 #ef233c;
+  border-color: #ef233c;
 }
 
 /* Portfolio container transitions */
@@ -469,11 +522,11 @@ onUnmounted(() => {
   .portfolio .portfolio-text {
     min-height: 250px;
   }
-  
+
   .portfolio .portfolio-text h3 {
     font-size: 16px;
   }
-  
+
   .portfolio .portfolio-text h4 {
     font-size: 13px;
   }
@@ -484,40 +537,40 @@ onUnmounted(() => {
     min-height: 200px;
     margin: -20px 10px 20px 10px;
   }
-  
+
   .portfolio .portfolio-text h3 {
     font-size: 15px;
   }
-  
+
   .portfolio .portfolio-text h4 {
     font-size: 12px;
   }
-  
+
   .portfolio .portfolio-text .portfolio-description p {
     font-size: 13px;
   }
-  
+
   .portfolio .portfolio-text .portfolio-icons img {
     height: 60px;
     width: 60px;
     border-radius: 60px;
   }
-  
+
   .portfolio .portfolio-text a.btn {
     width: 40px;
     height: 40px;
   }
-  
+
   .portfolio .portfolio-text i {
     font-size: 20px;
   }
-  
+
   /* Responsive animation adjustments */
   .portfolio .portfolio-item {
     transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
   }
-  
+
   /* Force hardware acceleration on mobile */
   .portfolio .portfolio-item {
     -webkit-transform: translateZ(0);
@@ -525,7 +578,7 @@ onUnmounted(() => {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-  
+
   /* Ensure animations work on mobile */
   .portfolio .portfolio-item.animate__fadeInUp {
     -webkit-animation: fadeInUp 0.6s ease-out forwards;

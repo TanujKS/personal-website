@@ -1,34 +1,52 @@
 <template>
-  <div class="about" id="about">
+  <section class="about" id="about" role="main" aria-labelledby="about-heading">
     <div class="container-fluid">
       <div class="row align-items-center">
         <div class="col-lg-6 slide-in-left p-0">
           <div class="about-img">
-            <img src="/img/about.jpg" alt="Tanuj Siripurapu" />
+            <img
+              src="/img/about.jpg"
+              alt="Tanuj Siripurapu, Computer Science student and full-stack developer"
+              loading="lazy"
+            />
           </div>
         </div>
         <div class="col-lg-6 slide-in-right p-4">
           <div class="about-content">
-            <div class="section-header text-left">
+            <header class="section-header text-left">
               <p>About Me</p>
-              <h2>9 Years Experience</h2>
-            </div>
+              <h2 id="about-heading">9 Years Experience</h2>
+            </header>
             <div class="about-text">
               <p>
                 I have been programming since I was 9 years old, tinkering with Python scripts like
                 account managers and voice assistants. Since I first fell in love with programming,
                 I have developed software from Discord bots to machine learning models, mobile apps
                 to websites, and smart water meters to social media platforms. I am currently
-                pursuing a BS in Computer Science at University of California, Santa Barbara.
+                pursuing a BS in Computer Science at University of California, Santa Barbara, where
+                I focus on full-stack development, machine learning, and software engineering.
+              </p>
+              <p>
+                As a passionate developer and hackathon organizer, I co-founded MediHacks, one of
+                the largest global health hackathons with over 1,200 participants. I specialize in
+                Python development, web technologies like Vue.js and React, and have extensive
+                experience building scalable applications and machine learning solutions.
               </p>
             </div>
-            <div class="skills">
-              <div class="skill-item">
+            <div class="skills" role="list" aria-label="Technical skills and experience">
+              <div class="skill-item" role="listitem">
                 <div class="skill-name">
                   <p>Python (ML, Flask, Tensorflow, PyTorch, Discord.py)</p>
                   <p>9 Years</p>
                 </div>
-                <div class="progress">
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-valuenow="95"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Python experience: 95%"
+                >
                   <div
                     class="progress-bar"
                     role="progressbar"
@@ -38,12 +56,19 @@
                   ></div>
                 </div>
               </div>
-              <div class="skill-item">
+              <div class="skill-item" role="listitem">
                 <div class="skill-name">
                   <p>Web Development (Vue.js, React.js, Astro, Svelte)</p>
                   <p>4 years</p>
                 </div>
-                <div class="progress">
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-valuenow="50"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Web development experience: 50%"
+                >
                   <div
                     class="progress-bar"
                     role="progressbar"
@@ -53,12 +78,19 @@
                   ></div>
                 </div>
               </div>
-              <div class="skill-item">
+              <div class="skill-item" role="listitem">
                 <div class="skill-name">
                   <p>Full-Stack App Development (React Native, Firebase, PostgreSQL, Twilio)</p>
                   <p>4 years</p>
                 </div>
-                <div class="progress">
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-valuenow="50"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Full-stack development experience: 50%"
+                >
                   <div
                     class="progress-bar"
                     role="progressbar"
@@ -69,12 +101,12 @@
                 </div>
               </div>
             </div>
-            <a class="btn" href="#portfolio">Learn More</a>
+            <a class="btn" href="#portfolio" aria-label="View my portfolio projects">Learn More</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

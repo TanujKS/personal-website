@@ -1,5 +1,5 @@
 <template>
-  <div class="hero">
+  <header class="hero" role="banner">
     <div class="container-fluid">
       <div class="row align-items-center py-5 mb-5">
         <div class="col-sm-12 col-md-6">
@@ -7,27 +7,37 @@
             <div class="hero-text">
               <p>I'm</p>
               <h1>Tanuj Siripurapu</h1>
-              <h2 ref="typedElement"></h2>
-              <div class="typed-text">
+              <h2
+                ref="typedElement"
+                aria-label="Dynamic roles: Student, Web Developer, App Developer, Hackathon Organizer, Climber"
+              ></h2>
+              <div class="typed-text" aria-hidden="true">
                 Student, Web Developer, App Developer, Hackathon Organizer, Climber
               </div>
             </div>
-            <div class="hero-btn">
-              <a class="btn" id="dynamic-btn" :href="dynamicButtonHref">{{ dynamicButtonText }}</a>
-              <a class="btn" href="#portfolio">Projects</a>
+            <nav class="hero-btn" role="navigation" aria-label="Main navigation">
+              <a
+                class="btn"
+                id="dynamic-btn"
+                :href="dynamicButtonHref"
+                :aria-label="dynamicButtonText"
+                >{{ dynamicButtonText }}</a
+              >
+              <a class="btn" href="#portfolio" aria-label="View my portfolio projects">Projects</a>
               <a
                 class="btn"
                 href="https://cdn.tanuj.xyz/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download my resume (PDF)"
                 >Resume</a
               >
-            </div>
+            </nav>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>
