@@ -213,7 +213,7 @@ const projects = [
     description:
       'Rebuilding their website to handle secure membership directory, membership dues, and more',
     image: '/img/portfolio-9.png',
-    link: 'https://association-of-family-psychiatrists.github.io/site/#/',
+    link: 'https://familypsychiatrists.org',
     tags: ['Projects', 'Web Development'],
   },
   {
