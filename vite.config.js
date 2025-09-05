@@ -27,13 +27,7 @@ export default defineConfig({
       },
     },
     // Enable minification and compression
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    minify: 'esbuild',
     // Optimize asset handling
     assetsInlineLimit: 4096,
     // Generate source maps for production debugging
