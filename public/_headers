@@ -1,0 +1,109 @@
+# Cloudflare Pages headers configuration
+# Ensure proper MIME types for JavaScript modules
+/assets/*.js
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.css
+  Content-Type: text/css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.jpeg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.gif
+  Content-Type: image/gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.webmanifest
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=86400
+
+/assets/*.xml
+  Content-Type: application/xml
+  Cache-Control: public, max-age=86400
+
+/assets/*.txt
+  Content-Type: text/plain
+  Cache-Control: public, max-age=86400
+
+/assets/*.map
+  Content-Type: application/json
+  Cache-Control: public, max-age=86400
+
+# Static assets in root
+/*.js
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Content-Type: text/css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.gif
+  Content-Type: image/gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webmanifest
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=86400
+
+/*.xml
+  Content-Type: application/xml
+  Cache-Control: public, max-age=86400
+
+/*.txt
+  Content-Type: text/plain
+  Cache-Control: public, max-age=86400
+
+/*.map
+  Content-Type: application/json
+  Cache-Control: public, max-age=86400
+
+# HTML files
+/*.html
+  Content-Type: text/html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Default headers for all files
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
