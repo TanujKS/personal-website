@@ -156,7 +156,7 @@ const projects = [
     role: 'Board Member',
     date: 'Oct 2024 - Jul 2025',
     description:
-      "Revitalized Saratoga's public radio station, KSAR15, by connecting student volunteers to create professional content on high school sports, local business, and more",
+      "Revitalized Saratoga's public radio station, KSAR15, by connecting student volunteers to create professional content on high school sports, local business, and community events",
     image: '/img/portfolio-4.jpg',
     link: 'https://www.ksar15.org',
     tags: ['Organizations'],
@@ -167,7 +167,7 @@ const projects = [
     role: '2nd Place - CAC',
     date: 'Dec 2023',
     description:
-      'A mobile app to save water by providing real-time water usage/cost estimates; detecting leaks using machine learning; generating personalized tips on how to save water; & more',
+      'A mobile app to save water by providing real-time water usage/cost estimates; detecting leaks using machine learning; and generating personalized tips on how to save water',
     image: '/img/portfolio-5.PNG',
     link: 'https://www.youtube.com/watch?v=bDuVqdedkZA',
     tags: ['Projects'],
@@ -211,7 +211,7 @@ const projects = [
     role: 'Web Developer',
     date: 'June 2025 - Present',
     description:
-      'Rebuilding their website to handle secure membership directory, membership dues, and more',
+      'Rebuilding their website to handle secure membership directory, membership dues, and resources',
     image: '/img/portfolio-9.png',
     link: 'https://familypsychiatrists.org',
     tags: ['Projects', 'Web Development'],
@@ -221,9 +221,20 @@ const projects = [
     title: 'TheDraperyLady',
     role: 'Web Developer',
     date: 'June 2025 - Present',
-    description: 'Rebuilding her website to handle product listings, portfolio, and more',
+    description: 'Rebuilding her website to handle product listings, portfolio, and consulations',
     image: '/img/portfolio-10.png',
     link: 'https://thedraperylady.pages.dev/',
+    tags: ['Projects', 'Web Development'],
+  },
+  {
+    id: 10,
+    title: 'EcoFresh Dry Cleaner',
+    role: 'Web Developer',
+    date: 'July 2025 - Present',
+    description:
+      'Building a website, mobile app, and admin portal to manage delivery orders, integrate with Square POS/Payments, and analyze business metrics',
+    image: '/img/portfolio-11.png',
+    link: 'https://ecofreshdrycleaner.com/',
     tags: ['Projects', 'Web Development'],
   },
 ]
