@@ -227,7 +227,7 @@ const projects = [
     tags: ['Projects', 'Web Development'],
   },
   {
-    id: 10,
+    id: 11,
     title: 'EcoFresh Dry Cleaner',
     role: 'Web Developer',
     date: 'July 2025 - Present',
