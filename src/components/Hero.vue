@@ -104,6 +104,8 @@ onMounted(() => {
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .hero .hero-text p {

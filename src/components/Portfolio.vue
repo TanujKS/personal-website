@@ -409,7 +409,7 @@ onUnmounted(() => {
 .portfolio .portfolio-text {
   position: relative;
   min-height: 300px;
-  width: calc(100%);
+  width: calc(100% - 30px);
   margin: -30px 15px 30px 15px;
   display: flex;
   align-items: center;
@@ -546,6 +546,7 @@ onUnmounted(() => {
 @media (max-width: 767.98px) {
   .portfolio .portfolio-text {
     min-height: 200px;
+    width: calc(100% - 20px);
     margin: -20px 10px 20px 10px;
   }
 

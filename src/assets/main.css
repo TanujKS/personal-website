@@ -5,14 +5,41 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   color: #414141;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Ensure all containers don't cause horizontal overflow */
+.container,
+.container-fluid {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Prevent common elements from extending beyond viewport */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #414141;
@@ -32,8 +59,14 @@ a {
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -69,12 +102,12 @@ a {
 
 .section-header p::before {
   position: absolute;
-  content: "";
+  content: '';
   height: 3px;
   top: 11px;
   right: 0;
   left: -30px;
-  background: #EF233C;
+  background: #ef233c;
   z-index: -1;
 }
 

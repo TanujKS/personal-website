@@ -149,6 +149,8 @@ onMounted(() => {
 
 .about .about-content {
   padding: 0 75px 0 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .about .about-text p {
