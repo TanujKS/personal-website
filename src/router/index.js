@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../components/Contact.vue'),
   },
   {
+    path: '/contact-card',
+    name: 'Contact Card',
+    component: () => import('../components/Contact.vue'),
+  },
+  {
     path: '/droplet',
     redirect: '/external-redirect?url=https://youtu.be/bDuVqdedkZA',
   },
