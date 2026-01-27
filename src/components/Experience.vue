@@ -25,6 +25,30 @@
             <h2>{{ award.title }}</h2>
             <h4>{{ award.subtitle }}</h4>
             <p>{{ award.description }}</p>
+            <div v-if="award.github || award.project" class="timeline-links">
+              <a
+                v-if="award.github"
+                :href="award.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="timeline-link-btn"
+                aria-label="View on GitHub"
+              >
+                <i class="fab fa-github" aria-hidden="true"></i>
+                GitHub
+              </a>
+              <a
+                v-if="award.project"
+                :href="award.project"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="timeline-link-btn"
+                aria-label="View project"
+              >
+                <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                Project
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -108,6 +132,15 @@ const awards = [
     position: 'left',
     animation: 'animate__slideInLeft',
   },
+  {
+    id: 8,
+    date: '2025',
+    title: '3rd Place',
+    subtitle: 'NexHacks (1,000+ participants)',
+    description: 'Recognized by LiveKit for creating Clearance, a real-time video agent and blockchain verification system designed to increase transparency in policing while actively supporting officers in the field',
+    position: 'right',
+    animation: 'animate__slideInRight',
+  },
 ]
 
 let observer = null
@@ -182,6 +215,7 @@ onUnmounted(() => {
   position: relative;
   background: inherit;
   width: 50%;
+  max-width: 800px;
   margin-bottom: 30px;
   opacity: 0;
   transform: translateX(0);
@@ -196,6 +230,8 @@ onUnmounted(() => {
 
 .experience .timeline .timeline-item.left {
   left: 0;
+  margin-right: auto;
+  margin-left: calc(50% - min(50%, 800px));
   padding-right: 30px;
   transform: translateX(-50px);
   -webkit-transform: translateX(-50px);
@@ -308,6 +344,37 @@ onUnmounted(() => {
   line-height: 1.6;
 }
 
+.experience .timeline .timeline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.experience .timeline .timeline-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #ef233c;
+  border: 2px solid #ef233c;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: ease-out 0.3s;
+}
+
+.experience .timeline .timeline-link-btn:hover {
+  color: #ef233c;
+  background: transparent;
+}
+
+.experience .timeline .timeline-link-btn i {
+  font-size: 16px;
+}
+
 /* Responsive styles */
 @media (max-width: 767.98px) {
   .experience .timeline::after {
@@ -320,11 +387,12 @@ onUnmounted(() => {
   }
 
   .experience .timeline .timeline-item.left {
+    margin-left: 0;
     padding-right: 0;
   }
 
   .experience .timeline .timeline-item.right {
-    left: 0%;
+    left: 0;
     padding-left: 38px;
   }
 

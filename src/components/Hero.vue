@@ -1,7 +1,7 @@
 <template>
   <header class="hero" role="banner">
     <div class="container-fluid">
-      <div class="row align-items-center py-5 mb-5">
+      <div class="row align-items-center py-5">
         <div class="col-sm-12 col-md-6">
           <div class="hero-content">
             <div class="hero-text">

@@ -2,7 +2,7 @@
   <section class="about" id="about" role="main" aria-labelledby="about-heading">
     <div class="container-fluid">
       <div class="row align-items-center">
-        <div class="col-lg-6 slide-in-left p-0">
+        <div class="col-lg-6 slide-in-left about-img-col">
           <div class="about-img">
             <img
               src="/img/about.jpg"
@@ -19,18 +19,14 @@
             </header>
             <div class="about-text">
               <p>
-                I have been programming since I was 9 years old, tinkering with Python scripts like
-                account managers and voice assistants. Since I first fell in love with programming,
-                I have developed software from Discord bots to machine learning models, mobile apps
-                to websites, and smart water meters to social media platforms. I am currently
-                pursuing a BS in Computer Science at University of California, Santa Barbara, where
-                I focus on full-stack development, machine learning, and software engineering.
+                I'm a Computer Science student at UC Santa Barbara balancing academics and professional work. With another student at UCSB, I'm building Edviro Energy: an
+                energy management platform that provides dashboards for school districts and uses machine learning for anomaly detection and
+                forecasting. We help school districts identify overbilling, suggest infrastructure improvements to cut down on cost and emissions, and resolve overbilling cases with automated agents. We have identified over $400K in overbilling for 7 schools with many more starting the partnership process soon.
               </p>
               <p>
-                As a passionate developer and hackathon organizer, I co-founded MediHacks, one of
-                the largest global health hackathons with over 1,200 participants. I specialize in
-                Python development, web technologies like Vue.js and React, and have extensive
-                experience building scalable applications and machine learning solutions.
+                Through ACM Industry @ UCSB, I'm working with RTX, where I'm implementing RISC-V-based
+                radio frequency classification algorithms in TensorFlow to run on FPGA systems. Beyond my professional work, I'm an active member of SB Hacks
+                and 180 Consulting, and I continue to take on freelance full-stack & agentic automation projects focusing on SMB operations.
               </p>
             </div>
             <div class="skills" role="list" aria-label="Technical skills and experience">
@@ -132,25 +128,36 @@ onMounted(() => {
   overflow: hidden;
 }
 
+.about .container-fluid {
+  overflow: hidden;
+}
+
+.about .about-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+}
+
 .about .about-img {
   position: relative;
-  height: 100%;
-  min-height: 500px;
-  max-height: 1200px;
+  width: 560px;
+  height: 560px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .about .about-img img {
-  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0;
 }
 
 .about .about-content {
   padding: 0 75px 0 0;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .about .about-text p {
@@ -226,9 +233,13 @@ onMounted(() => {
 
 /* Responsive styles */
 @media (max-width: 991.98px) {
+  .about .about-img-col {
+    padding: 30px 20px;
+  }
+
   .about .about-img {
-    min-height: 400px;
-    margin-bottom: 30px;
+    width: 440px;
+    height: 440px;
   }
 
   .about .about-content {
@@ -241,8 +252,13 @@ onMounted(() => {
     margin: 0 0 45px 0;
   }
 
+  .about .about-img-col {
+    padding: 24px 16px;
+  }
+
   .about .about-img {
-    min-height: 300px;
+    width: 280px;
+    height: 280px;
   }
 
   .about .about-content {

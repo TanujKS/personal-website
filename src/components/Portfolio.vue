@@ -10,10 +10,6 @@
       <header class="section-header text-center">
         <p>My Portfolio</p>
         <h2 id="portfolio-heading">Projects & Experience</h2>
-        <p class="portfolio-description">
-          A showcase of my work in web development, mobile apps, machine learning, and hackathon
-          organization
-        </p>
       </header>
       <div class="row">
         <div class="col-12">
@@ -84,6 +80,7 @@
                   loading="lazy"
                 />
                 <a
+                  v-if="project.link"
                   class="btn ml-auto"
                   :href="project.link"
                   target="_blank"
@@ -113,10 +110,31 @@ const filters = [
   { id: '*', name: 'All' },
   { id: 'organizations', name: 'Organizations' },
   { id: 'projects', name: 'Projects' },
-  { id: 'web-development', name: 'Web Development' },
+  { id: 'contract-development', name: 'Contract Development' },
 ]
 
 const projects = [
+  {
+    id: 12,
+    title: 'Edviro Energy',
+    role: 'Founding Engineer',
+    date: 'Sep 2025 - Present',
+    description:
+      'Energy management platform with dashboards, ML for anomaly detection & forecasting, and billing-resolution agents. Identified $400K+ in utility overbilling and secured contracts with 7+ schools. Full-stack development (React.js, Flask) & AWS + database infrastructure (Postgres, Supabase, model training/serving)',
+    image: '/img/portfolio-12.jpg',
+    link: 'home.edviroenergy.com',
+    tags: ['Projects'],
+  },
+  {
+    id: 13,
+    title: 'RTX',
+    role: 'Project @ ACM Industry',
+    date: 'Jan 2026 - Present',
+    description:
+      'Implementing RISC-V-based radio frequency classification algorithms on FPGAs. Designing classification models in Tensorflow & CI/CD pipelines for RISC-V development',
+    image: '/img/portfolio-13.png',
+    tags: ['Projects'],
+  },
   {
     id: 1,
     title: 'MediHacks',
@@ -203,7 +221,7 @@ const projects = [
       'Working under VC / consultant Michael Staton to develop a website for efficiently sharing thousands of Markdown files with clients',
     image: '/img/portfolio-8.png',
     link: 'https://lossless.group',
-    tags: ['Projects', 'Web Development'],
+    tags: ['Contract Development'],
   },
   {
     id: 9,
@@ -214,7 +232,7 @@ const projects = [
       'Rebuilding their website to handle secure membership directory, membership dues, and resources',
     image: '/img/portfolio-9.png',
     link: 'https://familypsychiatrists.org',
-    tags: ['Projects', 'Web Development'],
+    tags: ['Contract Development'],
   },
   {
     id: 10,
@@ -224,7 +242,7 @@ const projects = [
     description: 'Rebuilding her website to handle product listings, portfolio, and consulations',
     image: '/img/portfolio-10.png',
     link: 'https://thedraperylady.pages.dev/',
-    tags: ['Projects', 'Web Development'],
+    tags: ['Contract Development'],
   },
   {
     id: 11,
@@ -235,7 +253,7 @@ const projects = [
       'Building a website, mobile app, and admin portal to manage delivery orders, integrate with Square POS/Payments, and analyze business metrics',
     image: '/img/portfolio-11.png',
     link: 'https://ecofreshdrycleaner.com/',
-    tags: ['Projects', 'Web Development'],
+    tags: ['Contract Development'],
   },
 ]
 
@@ -325,15 +343,6 @@ onUnmounted(() => {
 .portfolio {
   position: relative;
   padding: 45px 0 15px 0;
-}
-
-.portfolio .portfolio-description {
-  font-size: 16px;
-  color: #797979;
-  margin-top: 10px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .portfolio #portfolio-filter {
@@ -487,8 +496,12 @@ onUnmounted(() => {
 .portfolio .portfolio-text .portfolio-icons img {
   height: 75px;
   width: 75px;
+  min-width: 75px;
+  min-height: 75px;
   border-radius: 75px;
   object-fit: cover;
+  flex-shrink: 0;
+  aspect-ratio: 1;
 }
 
 .portfolio .portfolio-text a.btn {
@@ -565,7 +578,11 @@ onUnmounted(() => {
   .portfolio .portfolio-text .portfolio-icons img {
     height: 60px;
     width: 60px;
+    min-width: 60px;
+    min-height: 60px;
     border-radius: 60px;
+    flex-shrink: 0;
+    aspect-ratio: 1;
   }
 
   .portfolio .portfolio-text a.btn {
