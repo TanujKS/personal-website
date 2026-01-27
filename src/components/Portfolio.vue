@@ -122,7 +122,7 @@ const projects = [
     description:
       'Energy management platform with dashboards, ML for anomaly detection & forecasting, and billing-resolution agents. Identified $400K+ in utility overbilling and secured contracts with 7+ schools. Full-stack development (React.js, Flask) & AWS + database infrastructure (Postgres, Supabase, model training/serving)',
     image: '/img/portfolio-12.jpg',
-    link: 'home.edviroenergy.com',
+    link: 'https://home.edviroenergy.com',
     tags: ['Projects'],
   },
   {

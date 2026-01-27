@@ -10,7 +10,7 @@
       </header>
       <div class="timeline" ref="timelineRef">
         <div
-          v-for="(award, index) in awards"
+          v-for="(award, index) in reversedAwards"
           :key="award.id"
           :class="[
             'timeline-item',
@@ -46,7 +46,7 @@
                 aria-label="View project"
               >
                 <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                Project
+                Link
               </a>
             </div>
           </div>
@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const timelineRef = ref(null)
 const isVisible = ref(false)
@@ -72,6 +72,8 @@ const awards = [
       'Recognized for ZeroResponders: an app using AI to connect volunteers with medical emergencies faster than EMS in developing nations',
     position: 'left',
     animation: 'animate__slideInLeft',
+    project: 'https://devpost.com/software/zeroresponders',
+    github: 'https://github.com/zeroresponder/'
   },
   {
     id: 2,
@@ -82,6 +84,8 @@ const awards = [
       'Recognized for ProtectEd: AI to streamline communication in the event of a school shooting',
     position: 'right',
     animation: 'animate__slideInRight',
+    project: 'https://devpost.com/software/protected/',
+    github: 'https://github.com/SafeSchoolSolutions'
   },
   {
     id: 3,
@@ -92,6 +96,8 @@ const awards = [
       'Recognized for overall idea creation, execution, and technical complexity with WriteRight, AI grammar-checking built with students in mind',
     position: 'left',
     animation: 'animate__slideInLeft',
+    project: 'https://devpost.com/software/writeright-pq8ihr',
+    github: 'https://github.com/WriteRightOrg/frontend'
   },
   {
     id: 4,
@@ -102,6 +108,8 @@ const awards = [
       'Recognized for creating Droplet, a mobile application that uses machine learning to help save water and money for CA residents',
     position: 'right',
     animation: 'animate__slideInRight',
+    project: 'https://tanuj.xyz/droplet',
+    github: 'https://github.com/DropletCAC'
   },
   {
     id: 5,
@@ -112,6 +120,7 @@ const awards = [
       'Recognized as 1 of 12 finalists in the state of California for researching, writing, and developing a website about the causes, effects, and significance of the 1965 Immigration Act (Hart-Celler Act)',
     position: 'left',
     animation: 'animate__slideInLeft',
+    project: 'https://24-02216363.nhdwebcentral.org/'
   },
   {
     id: 6,
@@ -122,6 +131,7 @@ const awards = [
       "Saratoga High's Winter Percussion drumline was recognized as a finalist amongst the best programs in the world at the World Championships in Dayton, OH for the first time in the school's history",
     position: 'right',
     animation: 'animate__slideInRight',
+    project: 'https://tanuj.xyz/facade'
   },
   {
     id: 7,
@@ -134,14 +144,18 @@ const awards = [
   },
   {
     id: 8,
-    date: '2025',
+    date: 'Jan 2026',
     title: '3rd Place',
     subtitle: 'NexHacks (1,000+ participants)',
     description: 'Recognized by LiveKit for creating Clearance, a real-time video agent and blockchain verification system designed to increase transparency in policing while actively supporting officers in the field',
     position: 'right',
     animation: 'animate__slideInRight',
+    project: 'https://devpost.com/software/clearance',
+    github: 'https://github.com/nexhacks'
   },
 ]
+
+const reversedAwards = computed(() => [...awards].reverse())
 
 let observer = null
 
