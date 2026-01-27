@@ -33,6 +33,10 @@ const routes = [
     redirect: '/external-redirect?url=https://devpost.com/software/writeright-pq8ihr',
   },
   {
+    path: '/clearance',
+    redirect: '/external-redirect?url=https://devpost.com/software/clearance',
+  },
+  {
     path: '/zeroresponders',
     redirect: '/external-redirect?url=https://devpost.com/software/zeroresponders',
   },
