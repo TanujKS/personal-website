@@ -122,7 +122,7 @@ const projects = [
     description:
       'Energy management platform with dashboards, ML for anomaly detection & forecasting, and billing-resolution agents. Identified $400K+ in utility overbilling and secured contracts with 7+ schools. Full-stack development (React.js, Flask) & AWS + database infrastructure (Postgres, Supabase, model training/serving)',
     image: '/img/portfolio-12.jpg',
-    link: 'https://home.edviroenergy.com',
+    link: 'https://www.home.edviroenergy.com',
     tags: ['Projects'],
   },
   {
@@ -241,7 +241,7 @@ const projects = [
     date: 'June 2025 - Present',
     description: 'Rebuilding her website to handle product listings, portfolio, and consulations',
     image: '/img/portfolio-10.png',
-    link: 'https://thedraperylady.pages.dev/',
+    link: 'https://draperylady.net',
     tags: ['Contract Development'],
   },
   {
