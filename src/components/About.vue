@@ -187,6 +187,8 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
+  gap: 12px;
+  min-width: 0;
 }
 
 .about .skill-name p {
@@ -197,8 +199,15 @@ onMounted(() => {
   color: #414141;
 }
 
+.about .skill-name p:first-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
 .about .skill-name p:last-child {
   color: #797979;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .about .progress {
@@ -239,6 +248,12 @@ onMounted(() => {
 }
 
 /* Responsive styles */
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .about .skill-item {
+    max-width: 420px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .about .about-img-col {
     padding: 30px 20px;
