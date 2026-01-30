@@ -19,14 +19,21 @@
             </header>
             <div class="about-text">
               <p>
-                I'm a Computer Science student at UC Santa Barbara balancing academics and professional work. With another student at UCSB, I'm building Edviro Energy: an
-                energy management platform that provides dashboards for school districts and uses machine learning for anomaly detection and
-                forecasting. We help school districts identify overbilling, suggest infrastructure improvements to cut down on cost and emissions, and resolve overbilling cases with automated agents. We have identified over $400K in overbilling for 7 schools with many more starting the partnership process soon.
+                I'm a Computer Science student at UC Santa Barbara balancing academics and
+                professional work. With another student at UCSB, I'm building Edviro Energy: an
+                energy management platform that provides dashboards for school districts and uses
+                machine learning for anomaly detection and forecasting. We help school districts
+                identify overbilling, suggest infrastructure improvements to cut down on cost and
+                emissions, and resolve overbilling cases with automated agents. We have identified
+                over $400K in overbilling for 7 schools with many more starting the partnership
+                process soon.
               </p>
               <p>
-                Through ACM Industry @ UCSB, I'm working with RTX, where I'm implementing RISC-V-based
-                radio frequency classification algorithms in TensorFlow to run on FPGA systems. Beyond my professional work, I'm an active member of SB Hacks
-                and 180 Consulting, and I continue to take on freelance full-stack & agentic automation projects focusing on SMB operations.
+                Through ACM Industry @ UCSB, I'm working with RTX, where I'm implementing
+                RISC-V-based radio frequency classification algorithms in TensorFlow to run on FPGA
+                systems. Beyond my professional work, I'm an active member of SB Hacks and 180
+                Consulting, and I continue to take on freelance full-stack & agentic automation
+                projects focusing on SMB operations.
               </p>
             </div>
             <div class="skills" role="list" aria-label="Technical skills and experience">
@@ -76,7 +83,7 @@
               </div>
               <div class="skill-item" role="listitem">
                 <div class="skill-name">
-                  <p>Full-Stack App Development (React Native, Firebase, PostgreSQL, Twilio)</p>
+                  <p>Full-Stack App Development (React Native, Node.js, PostgreSQL)</p>
                   <p>4 years</p>
                 </div>
                 <div
