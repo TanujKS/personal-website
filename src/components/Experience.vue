@@ -153,6 +153,16 @@ const awards = [
     project: 'https://devpost.com/software/clearance',
     github: 'https://github.com/nexhacks'
   },
+  {
+    id: 9,
+    date: 'June 2026',
+    title: 'Y Combinator',
+    subtitle: 'Edviro',
+    description: 'Accepted into the Y Combinator Summer 2026 batch at the age of 19',
+    position: 'left',
+    animation: 'animate__slideInLeft',
+    project: 'https://edviroenergy.com',
+  },
 ]
 
 const reversedAwards = computed(() => [...awards].reverse())
@@ -177,8 +187,8 @@ onMounted(() => {
         })
       },
       {
-        threshold: isMobile ? 0.1 : 0.3, // Lower threshold for mobile
-        rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px', // Smaller margin for mobile
+        threshold: 0,
+        rootMargin: isMobile ? '0px 0px 150px 0px' : '0px 0px 300px 0px',
       },
     )
 

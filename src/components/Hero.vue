@@ -9,10 +9,10 @@
               <h1>Tanuj Siripurapu</h1>
               <h2
                 ref="typedElement"
-                aria-label="Dynamic roles: Student, Web Developer, App Developer, Hackathon Organizer, Climber"
+                aria-label="Dynamic roles: Student, Founder, Developer, Organizer, Climber, Student Pilot"
               ></h2>
               <div class="typed-text" aria-hidden="true">
-                Student, Web Developer, App Developer, Hackathon Organizer, Climber
+                Student, Founder, Developer, Organizer, Climber, Student Pilot
               </div>
             </div>
             <nav class="hero-btn" role="navigation" aria-label="Main navigation">
@@ -70,7 +70,7 @@ onMounted(() => {
   // Set up typed.js
   if (typedElement.value) {
     const typed = new Typed(typedElement.value, {
-      strings: ['Student', 'Web Developer', 'App Developer', 'Hackathon Organizer', 'Climber'],
+      strings: ['Student', 'Founder', 'Developer', 'Organizer', 'Climber', 'Student Pilot'],
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000,

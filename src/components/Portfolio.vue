@@ -11,35 +11,9 @@
         <p>My Portfolio</p>
         <h2 id="portfolio-heading">Projects & Experience</h2>
       </header>
-      <div class="row">
-        <div class="col-12">
-          <nav role="navigation" aria-label="Portfolio filter">
-            <ul id="portfolio-filter" role="tablist">
-              <li
-                v-for="filter in filters"
-                :key="filter.id"
-                :class="{ 'filter-active': activeFilter === filter.id }"
-                @click="setActiveFilter(filter.id)"
-                role="tab"
-                :aria-selected="activeFilter === filter.id"
-                :aria-controls="`portfolio-${filter.id}`"
-                tabindex="0"
-                @keydown.enter="setActiveFilter(filter.id)"
-                @keydown.space.prevent="setActiveFilter(filter.id)"
-              >
-                {{ filter.name }}
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div
-        class="row portfolio-container pt-5"
-        role="tabpanel"
-        :aria-labelledby="`portfolio-${activeFilter}`"
-      >
+      <div class="row portfolio-container pt-5">
         <article
-          v-for="(project, index) in filteredProjects"
+          v-for="(project, index) in projects"
           :key="project.id"
           :class="[
             'col-lg-4',
@@ -58,20 +32,6 @@
                 <h4>{{ project.role }}</h4>
                 <time class="portfolio-date" :datetime="project.date">{{ project.date }}</time>
                 <p>{{ project.description }}</p>
-                <div
-                  class="portfolio-tags"
-                  role="list"
-                  aria-label="Project technologies and categories"
-                >
-                  <span
-                    v-for="tag in project.tags"
-                    :key="tag"
-                    class="portfolio-tag"
-                    role="listitem"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
               </div>
               <div class="portfolio-icons ml-2">
                 <img
@@ -99,31 +59,21 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const portfolioRef = ref(null)
 const isVisible = ref(false)
 
-const activeFilter = ref('*')
-
-const filters = [
-  { id: '*', name: 'All' },
-  { id: 'organizations', name: 'Organizations' },
-  { id: 'projects', name: 'Projects' },
-  { id: 'contract-development', name: 'Contract Development' },
-]
-
 const projects = [
   {
     id: 12,
-    title: 'Edviro Energy',
-    role: 'Founding Engineer',
-    date: 'Sep 2025 - Present',
+    title: 'Edviro (YC S26)',
+    role: 'Co-Founder',
+    date: 'Oct 2025 - Present',
     description:
-      'Energy management platform with dashboards, ML for anomaly detection & forecasting, and billing-resolution agents. Identified $400K+ in utility overbilling and secured contracts with 7+ schools. Full-stack development (React.js, Flask) & AWS + database infrastructure (Postgres, Supabase, model training/serving)',
+      'Agentic energy management platform allowing facilites managers to detect, act, and verify in one platform.',
     image: '/img/portfolio-12.jpg',
-    link: 'https://home.edviroenergy.com',
-    tags: ['Projects'],
+    link: 'https://edviroenergy.com',
   },
   {
     id: 13,
@@ -133,7 +83,6 @@ const projects = [
     description:
       'Implementing RISC-V-based radio frequency classification algorithms on FPGAs. Designing classification models in Tensorflow & CI/CD pipelines for RISC-V development',
     image: '/img/portfolio-13.png',
-    tags: ['Projects'],
   },
   {
     id: 1,
@@ -144,7 +93,6 @@ const projects = [
       'The MediHacks organization has hosted some of the largest global health hackathon with 1,200+ hackers and over $10,000 in cash prizes',
     image: '/img/portfolio-1.png',
     link: 'https://www.medihacks.org',
-    tags: ['Organizations'],
   },
   {
     id: 2,
@@ -155,18 +103,6 @@ const projects = [
       'Torus Platforms brings college students, clubs, and organizations closer together with event planning, group management, and student verification',
     image: '/img/portfolio-2.jpg',
     link: 'https://www.torusplatforms.com',
-    tags: ['Projects'],
-  },
-  {
-    id: 3,
-    title: 'NIJE',
-    role: 'Web Developer',
-    date: 'Apr 2024 - Dec 2024',
-    description:
-      'Developing technologies to preserve Indigenous languages & mentoring Indigenous students through college admissions',
-    image: '/img/portfolio-3.png',
-    link: 'https://www.nijelearning.org',
-    tags: ['Organizations'],
   },
   {
     id: 4,
@@ -177,7 +113,6 @@ const projects = [
       "Revitalized Saratoga's public radio station, KSAR15, by connecting student volunteers to create professional content on high school sports, local business, and community events",
     image: '/img/portfolio-4.jpg',
     link: 'https://www.ksar15.org',
-    tags: ['Organizations'],
   },
   {
     id: 5,
@@ -188,7 +123,6 @@ const projects = [
       'A mobile app to save water by providing real-time water usage/cost estimates; detecting leaks using machine learning; and generating personalized tips on how to save water',
     image: '/img/portfolio-5.PNG',
     link: 'https://www.youtube.com/watch?v=bDuVqdedkZA',
-    tags: ['Projects'],
   },
   {
     id: 6,
@@ -199,7 +133,6 @@ const projects = [
       'Created a website analyzing the 1965 Immigration Act & was recognized as a National History Day California State Finalist out of ~1600 participants',
     image: '/img/portfolio-6.png',
     link: 'https://24-02216363.nhdwebcentral.org/',
-    tags: ['Projects'],
   },
   {
     id: 7,
@@ -210,88 +143,18 @@ const projects = [
       'Taught webdev and basic AI skills to local high schoolers with no coding experience through a 6-week summer program',
     image: '/img/portfolio-7.png',
     link: 'https://granthough.github.io/Zero-To-AI-Web-Apps-Website/',
-    tags: ['Organizations'],
   },
   {
     id: 8,
     title: 'Lossless Group',
-    role: 'Web Developer',
+    role: 'Software Developer',
     date: 'Apr 2025 - Present',
     description:
       'Working under VC / consultant Michael Staton to develop a website for efficiently sharing thousands of Markdown files with clients',
     image: '/img/portfolio-8.png',
     link: 'https://lossless.group',
-    tags: ['Contract Development'],
-  },
-  {
-    id: 9,
-    title: 'Association of Family Psychiatrists',
-    role: 'Web Developer',
-    date: 'June 2025 - Present',
-    description:
-      'Rebuilding their website to handle secure membership directory, membership dues, and resources',
-    image: '/img/portfolio-9.png',
-    link: 'https://familypsychiatrists.org',
-    tags: ['Contract Development'],
-  },
-  {
-    id: 10,
-    title: 'TheDraperyLady',
-    role: 'Web Developer',
-    date: 'June 2025 - Present',
-    description: 'Rebuilding her website to handle product listings, portfolio, and consulations',
-    image: '/img/portfolio-10.png',
-    link: 'https://draperylady.net',
-    tags: ['Contract Development'],
-  },
-  {
-    id: 11,
-    title: 'EcoFresh Dry Cleaner',
-    role: 'Web Developer',
-    date: 'July 2025 - Present',
-    description:
-      'Building a website, mobile app, and admin portal to manage delivery orders, integrate with Square POS/Payments, and analyze business metrics',
-    image: '/img/portfolio-11.png',
-    link: 'https://ecofreshdrycleaner.com/',
-    tags: ['Contract Development'],
   },
 ]
-
-const filteredProjects = computed(() => {
-  if (activeFilter.value === '*') {
-    return projects
-  }
-  return projects.filter((project) => {
-    return project.tags.some((tag) => tag.toLowerCase().replace(/\s+/g, '-') === activeFilter.value)
-  })
-})
-
-const setActiveFilter = async (filterId) => {
-  // Add fade out animation to current items
-  const portfolioItems = document.querySelectorAll('.portfolio-item')
-  portfolioItems.forEach((item, index) => {
-    item.classList.remove('animate__fadeInUp')
-    item.classList.add('animate__fadeOutDown')
-    item.style.animationDelay = `${index * 0.05}s`
-  })
-
-  // Wait for fade out animation to complete
-  await new Promise((resolve) => setTimeout(resolve, 300))
-
-  // Update filter
-  activeFilter.value = filterId
-
-  // Wait for DOM update
-  await nextTick()
-
-  // Add fade in animation to new items
-  const newPortfolioItems = document.querySelectorAll('.portfolio-item')
-  newPortfolioItems.forEach((item, index) => {
-    item.classList.remove('animate__fadeOutDown')
-    item.classList.add('animate__fadeInUp')
-    item.style.animationDelay = `${index * 0.1}s`
-  })
-}
 
 let observer = null
 
@@ -343,39 +206,6 @@ onUnmounted(() => {
 .portfolio {
   position: relative;
   padding: 45px 0 15px 0;
-}
-
-.portfolio #portfolio-filter {
-  padding: 0;
-  margin: -15px 0 25px 0;
-  list-style: none;
-  font-size: 0;
-  text-align: center;
-}
-
-.portfolio #portfolio-filter li {
-  cursor: pointer;
-  display: inline-block;
-  margin: 5px;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  background: #ef233c;
-  border: 2px solid transparent;
-  border-radius: 0;
-  box-shadow: inset 0 0 0 50px #ef233c;
-  transition: ease-out 0.3s;
-  -webkit-transition: ease-out 0.3s;
-  -moz-transition: ease-out 0.3s;
-}
-
-.portfolio #portfolio-filter li:hover,
-.portfolio #portfolio-filter li.filter-active {
-  color: #ef233c;
-  background: transparent;
-  box-shadow: inset 0 0 0 0 #ef233c;
-  border-color: #ef233c;
 }
 
 .portfolio .portfolio-item {
@@ -465,24 +295,6 @@ onUnmounted(() => {
   color: #797979;
   line-height: 1.6;
   margin-bottom: 10px;
-}
-
-.portfolio .portfolio-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 10px;
-}
-
-.portfolio .portfolio-tag {
-  background: #ef233c;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .portfolio .portfolio-text .portfolio-icons {

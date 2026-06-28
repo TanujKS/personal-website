@@ -19,21 +19,13 @@
             </header>
             <div class="about-text">
               <p>
-                I'm a Computer Science student at UC Santa Barbara balancing academics and
-                professional work. With another student at UCSB, I'm building Edviro Energy: an
-                energy management platform that provides dashboards for school districts and uses
-                machine learning for anomaly detection and forecasting. We help school districts
-                identify overbilling, suggest infrastructure improvements to cut down on cost and
-                emissions, and resolve overbilling cases with automated agents. We have identified
-                over $400K in overbilling for 7 schools with many more starting the partnership
-                process soon.
+                I'm a co-founder of Edviro (YC S26), an agentic energy management platform that allows facilities managers to detect anomalies, act on their smart controls, and verify savings actually materialize in one platform. I'm currenlty on leave from UC Santa Barbara to go full-time on Edviro during the YC Summer 26 batch. 
+We've already identified over $400K in overbilling for 7 schools with many more in the pipeline.
               </p>
               <p>
-                Through ACM Industry @ UCSB, I'm working with RTX, where I'm implementing
-                RISC-V-based radio frequency classification algorithms in TensorFlow to run on FPGA
-                systems. Beyond my professional work, I'm an active member of SB Hacks and 180
-                Consulting, and I continue to take on freelance full-stack & agentic automation
-                projects focusing on SMB operations.
+                During my time at UCSB, I worked with RTX through ACM.Industry to implement
+                RISC-V-based radio frequency classification algorithms. I was also an active member of SB Hacks and 180
+                Consulting, and a freelance contract software developer for several small businesseses and PathSolutions.
               </p>
             </div>
             <div class="skills" role="list" aria-label="Technical skills and experience">
