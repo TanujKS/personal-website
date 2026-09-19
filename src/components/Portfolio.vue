@@ -71,7 +71,7 @@ const projects = [
     role: 'Co-Founder',
     date: 'Oct 2025 - Present',
     description:
-      'Agentic energy management platform allowing facilites managers to detect, act, and verify in one platform.',
+      'Agentic energy management platform allowing facilities managers to detect, act, and verify in one platform.',
     image: '/img/portfolio-12.jpg',
     link: 'https://edviroenergy.com',
   },
