@@ -18,6 +18,14 @@
             <a href="https://www.linkedin.com/in/tanuj-siripurapu-747b58217" target="_blank">
               <i class="fab fa-linkedin-in"></i>
             </a>
+            <a
+              href="https://x.com/kstanuj"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X profile"
+            >
+              <i class="fab fa-x-twitter"></i>
+            </a>
           </div>
         </div>
       </div>
