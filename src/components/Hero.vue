@@ -24,14 +24,6 @@
                 >{{ dynamicButtonText }}</a
               >
               <a class="btn" href="#portfolio" aria-label="View my portfolio projects">Projects</a>
-              <a
-                class="btn"
-                href="https://cdn.tanuj.xyz/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download my resume (PDF)"
-                >Resume</a
-              >
             </nav>
           </div>
         </div>
