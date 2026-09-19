@@ -10,9 +10,9 @@ src/
 │   └── main.css          # Main CSS with global styles and animations
 ├── components/
 │   ├── Hero.vue          # Hero section with typed.js animation
-│   ├── About.vue         # About section with skills and progress bars
-│   ├── Portfolio.vue     # Portfolio section with filter functionality
-│   ├── Experience.vue    # Experience timeline with awards & recognition
+│   ├── About.vue         # About section
+│   ├── Contact.vue       # Contact page with contact card download
+│   ├── Home.vue          # Home page composing the sections
 │   └── Footer.vue        # Footer with contact info and social links
 ├── App.vue               # Main app component
 └── main.js              # Vue app entry point
@@ -25,20 +25,12 @@ src/
    npm install
    ```
 
-2. Copy the portfolio images to the public/img/ directory:
-   ```bash
-   mkdir -p public/img
-   cp ../img/portfolio-*.png public/img/
-   cp ../img/portfolio-*.jpg public/img/
-   cp ../img/portfolio-*.PNG public/img/
-   ```
-
-3. Start development server:
+2. Start development server:
    ```bash
    npm run dev
    ```
 
-4. Build for production:
+3. Build for production:
    ```bash
    npm run build
    ```
@@ -99,43 +91,12 @@ This project was previously deployed on GitHub Pages. The configuration has been
 - **Dependencies**: typed.js
 
 ### About.vue
-- **Purpose**: About section with skills and experience
+- **Purpose**: About section with biography copy
 - **Features**:
   - Two-column horizontal layout with image and content
-  - Animated progress bars for skills
   - Slide-in animations (left and right)
   - Responsive design with mobile-first approach
   - Section header with red accent line
-  - Proper skill item grouping and spacing
-
-- **Props**: None
-- **Events**: None
-- **Dependencies**: None
-
-### Portfolio.vue
-- **Purpose**: Portfolio section with project showcase and filtering
-- **Features**:
-  - Interactive filter buttons (All, Organizations, Projects)
-  - Responsive grid layout (3 columns on desktop, 2 on tablet, 1 on mobile)
-  - Project cards with hover effects
-  - External link buttons with Font Awesome icons
-  - Fade-in animations for cards
-  - Real-time filtering without page reload
-  - 9 projects with proper categorization
-
-- **Props**: None
-- **Events**: None
-- **Dependencies**: Font Awesome (for icons)
-
-### Experience.vue
-- **Purpose**: Experience timeline with awards and recognition
-- **Features**:
-  - Vertical timeline with alternating left/right layout
-  - Red timeline line with circular markers
-  - Scroll-triggered slide-in animations (left and right)
-  - Responsive design that stacks vertically on mobile
-  - 7 awards with proper chronological ordering
-  - Professional timeline styling with shadows and borders
 
 - **Props**: None
 - **Events**: None
@@ -186,25 +147,8 @@ This project was previously deployed on GitHub Pages. The configuration has been
 ## Animations
 - **Slide-in animations**: Left and right slide effects
 - **Fade-in animations**: Smooth upward fade effects
-- **Progress bar animations**: Staggered skill bar animations
 - **Typed.js cursor**: Custom styled blinking cursor
-- **Portfolio filtering**: Smooth transitions between filter states
-- **Timeline animations**: Scroll-triggered slide-in effects for timeline items
 - **Footer fade-in**: Smooth entrance animation
-
-## Portfolio Features
-- **Filter Categories**: Organizations (filter-1) and Projects (filter-2)
-- **Project Cards**: Each with title, role, date, description, logo, and external link
-- **Responsive Grid**: 3 columns desktop, 2 tablet, 1 mobile
-- **Hover Effects**: Button color transitions and card shadows
-- **External Links**: All projects link to their respective websites
-
-## Experience Timeline Features
-- **Timeline Structure**: Vertical red line with circular markers
-- **Alternating Layout**: Left and right positioning for visual balance
-- **Award Categories**: Hackathon wins, competitions, academic achievements
-- **Responsive Design**: Stacks vertically on mobile devices
-- **Scroll-Triggered Animations**: Staggered slide-in effects for each timeline item
 
 ## Footer Features
 - **Contact Information**: Two email addresses with proper spacing
@@ -216,20 +160,17 @@ This project was previously deployed on GitHub Pages. The configuration has been
 ## Next Steps
 1. ✅ Hero component with typed.js
 2. ✅ About section component
-3. ✅ Portfolio/Projects component
-4. ✅ Experience timeline component
-5. ✅ Footer component
-6. 🔄 Contact section component
-7. 🔄 Navigation component
-8. 🔄 Smooth scrolling and navigation
-9. 🔄 Portfolio modal functionality
+3. ✅ Footer component
+4. ✅ Contact section component
+5. 🔄 Navigation component
+6. 🔄 Smooth scrolling and navigation
 
 ## Dependencies
 - Vue 3.5.18
 - typed.js 2.1.0
 - Vite 7.0.6
 - Bootstrap 5.3.0 (CDN)
-- Font Awesome 6.4.0 (for portfolio icons and social media icons)
+- Font Awesome 6.4.0 (for social media and contact icons)
 - Animate.css 4.1.1 (for smooth animations)
 
 ## Browser Support

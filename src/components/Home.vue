@@ -1,8 +1,6 @@
 <script setup>
 import Hero from './Hero.vue'
 import About from './About.vue'
-import Portfolio from './Portfolio.vue'
-import Experience from './Experience.vue'
 import Footer from './Footer.vue'
 </script>
 
@@ -10,8 +8,6 @@ import Footer from './Footer.vue'
   <div class="home">
     <Hero />
     <About />
-    <Portfolio />
-    <Experience />
     <Footer />
   </div>
 </template>
