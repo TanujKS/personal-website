@@ -34,10 +34,10 @@
               </div>
 
               <div class="contact-item">
-                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-location-dot"></i>
                 <div>
-                  <h4>Education</h4>
-                  <p>University of California, Santa Barbara</p>
+                  <h4>Location</h4>
+                  <p>San Francisco</p>
                 </div>
               </div>
             </div>
