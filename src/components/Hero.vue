@@ -23,7 +23,6 @@
                 :aria-label="dynamicButtonText"
                 >{{ dynamicButtonText }}</a
               >
-              <a class="btn" href="#portfolio" aria-label="View my portfolio projects">Projects</a>
             </nav>
           </div>
         </div>
