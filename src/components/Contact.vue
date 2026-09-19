@@ -65,6 +65,15 @@
               >
                 <i class="fab fa-linkedin"></i>
               </a>
+              <a
+                href="https://x.com/kstanuj"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+                aria-label="X profile"
+              >
+                <i class="fab fa-x-twitter"></i>
+              </a>
               <a href="mailto:contact@tanuj.xyz" class="social-link">
                 <i class="fas fa-envelope"></i>
               </a>
