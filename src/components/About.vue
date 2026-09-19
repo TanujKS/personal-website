@@ -23,10 +23,11 @@
                 Discord bots for my friends to failed social media apps to pen-testing.
               </p>
               <p>
-                I'm currently building Edviro (YC S26), the AI-native maintenance and operations
-                platform for facilities teams. We build energy models and agents that help
-                commercial buildings, generation plants, and data centers save energy, money, and
-                time.
+                I'm currently building
+                <a href="https://edviro.com" target="_blank" rel="noopener noreferrer">Edviro</a>
+                (YC S26), the AI-native maintenance and operations platform for facilities teams. We
+                build energy models and agents that help commercial buildings, generation plants,
+                and data centers save energy, money, and time.
               </p>
               <p>
                 I joined my co-founder Hursh Shah in October after we met at UCSB's freshman
@@ -86,6 +87,18 @@
   color: #797979;
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+/* Global `a { color: inherit }` would otherwise hide links inside the copy */
+.about .about-text a {
+  color: #ef233c;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.about .about-text a:hover {
+  border-bottom-color: #ef233c;
 }
 
 /* Responsive styles */
