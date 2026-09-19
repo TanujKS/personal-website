@@ -15,109 +15,31 @@
           <div class="about-content">
             <header class="section-header text-left">
               <p>About Me</p>
-              <h2 id="about-heading">9 Years Experience</h2>
+              <h2 id="about-heading">I Like Building Software</h2>
             </header>
             <div class="about-text">
               <p>
-                I'm a co-founder of Edviro (YC S26), an agentic energy management platform that allows facilities managers to detect anomalies, act on their smart controls, and verify savings actually materialize in one platform. I'm currently on leave from UC Santa Barbara to go full-time on Edviro during the YC Summer 26 batch. 
-We've already identified over $400K in overbilling for 7 schools with many more in the pipeline.
+                I've been programming since I was 9 years old and have always loved software, from
+                Discord bots for my friends to failed social media apps to pen-testing.
               </p>
               <p>
-                During my time at UCSB, I worked with RTX through ACM.Industry to implement
-                RISC-V-based radio frequency classification algorithms. I was also an active member of SB Hacks and 180
-                Consulting, and a freelance contract software developer for several small businesses and PathSolutions.
+                I'm currently building Edviro (YC S26), the AI-native maintenance and operations
+                platform for facilities teams. We build energy models and agents that help
+                commercial buildings, generation plants, and data centers save energy, money, and
+                time.
+              </p>
+              <p>
+                I joined my co-founder Hursh Shah in October after we met at UCSB's freshman
+                orientation. We've gone from taking sales calls and writing code until 2:00 AM in
+                our dorm lounge to being backed by Y Combinator and Reach Capital.
               </p>
             </div>
-            <div class="skills" role="list" aria-label="Technical skills and experience">
-              <div class="skill-item" role="listitem">
-                <div class="skill-name">
-                  <p>Python (ML, Flask, Tensorflow, PyTorch, Discord.py)</p>
-                  <p>9 Years</p>
-                </div>
-                <div
-                  class="progress"
-                  role="progressbar"
-                  aria-valuenow="95"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-label="Python experience: 95%"
-                >
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="95"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <div class="skill-item" role="listitem">
-                <div class="skill-name">
-                  <p>Web Development (Vue.js, React.js, Astro, Svelte)</p>
-                  <p>4 years</p>
-                </div>
-                <div
-                  class="progress"
-                  role="progressbar"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-label="Web development experience: 50%"
-                >
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="50"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <div class="skill-item" role="listitem">
-                <div class="skill-name">
-                  <p>Full-Stack App Development (React Native, Node.js, PostgreSQL)</p>
-                  <p>4 years</p>
-                </div>
-                <div
-                  class="progress"
-                  role="progressbar"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-label="Full-stack development experience: 50%"
-                >
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="50"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-            </div>
-            <a class="btn" href="#portfolio" aria-label="View my portfolio projects">Learn More</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<script setup>
-import { onMounted } from 'vue'
-
-onMounted(() => {
-  // Animate progress bars on mount
-  const progressBars = document.querySelectorAll('.progress-bar')
-  progressBars.forEach((bar, index) => {
-    setTimeout(() => {
-      const width = bar.getAttribute('aria-valuenow')
-      bar.style.width = width + '%'
-    }, index * 200) // Stagger the animations
-  })
-})
-</script>
 
 <style scoped>
 .about {
@@ -166,86 +88,7 @@ onMounted(() => {
   margin-bottom: 20px;
 }
 
-.about .skills {
-  margin-bottom: 30px;
-}
-
-.about .skill-item {
-  margin-bottom: 20px;
-}
-
-.about .skill-name {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  gap: 12px;
-  min-width: 0;
-}
-
-.about .skill-name p {
-  display: inline-block;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-  color: #414141;
-}
-
-.about .skill-name p:first-child {
-  min-width: 0;
-  flex: 1 1 auto;
-}
-
-.about .skill-name p:last-child {
-  color: #797979;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.about .progress {
-  height: 10px;
-  border-radius: 10px;
-  background: #dddddd;
-  overflow: hidden;
-}
-
-.about .progress .progress-bar {
-  width: 0px;
-  background: #ef233c;
-  border-radius: 10px;
-  transition: 2s ease-out;
-  height: 100%;
-}
-
-.about a.btn {
-  margin-top: 15px;
-  color: #ffffff;
-  background: #ef233c;
-  box-shadow: inset 0 0 0 50px #ef233c;
-  padding: 12px 25px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  transition: ease-out 0.3s;
-  display: inline-block;
-}
-
-.about .about-text a.btn:hover {
-  color: #ef233c;
-  background: transparent;
-  box-shadow: inset 0 0 0 0 #ef233c;
-  border-color: #ef233c;
-}
-
 /* Responsive styles */
-@media (min-width: 992px) and (max-width: 1399.98px) {
-  .about .skill-item {
-    max-width: 420px;
-  }
-}
-
 @media (max-width: 991.98px) {
   .about .about-img-col {
     padding: 30px 20px;
@@ -286,38 +129,6 @@ onMounted(() => {
 
   .about .section-header p {
     margin: 0 auto 10px auto;
-  }
-
-  .about .skill-name {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .about .skill-name p:last-child {
-    align-self: flex-end;
-  }
-}
-
-/* Responsive button styles */
-@media (max-width: 991.98px) {
-  .about .about-text a.btn {
-    padding: 12px 30px;
-    letter-spacing: 1px;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .about .about-text a.btn {
-    padding: 10px 15px;
-    letter-spacing: 1px;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .about .about-text a.btn {
-    padding: 8px 10px;
-    letter-spacing: 0;
   }
 }
 </style>
