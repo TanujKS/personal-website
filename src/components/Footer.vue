@@ -4,7 +4,7 @@
       <div class="container">
         <div class="footer-info">
           <h2>Tanuj Siripurapu</h2>
-          <h3>Saratoga, CA | Santa Barabara, CA</h3>
+          <h3>Saratoga, CA | Santa Barbara, CA</h3>
           <div class="footer-menu">
             <p>contact@tanuj.xyz</p>
           </div>
